@@ -4,20 +4,19 @@ import Link from 'next/link';
 
 export default function Home() {
   const [images, setImages] = useState([]);
-
   useEffect(() => {
     const tempImages = [];
-    for (let i = 0; i < 50; i++) {
-      tempImages.push(`https://picsum.photos/600/450?i=${i}`);
+    for (let i = 0; i < 21; i++) {
+      tempImages.push(`/${i}.jpg`);
     }
     setImages(tempImages);
   }, []);
 
   return (
     <div>
-      <h1>Image Test: External Urls</h1>
-      <Link href="/b">
-        <a>Go to Internal Urls</a>
+      <h1>Image Test: Internal Urls</h1>
+      <Link href="/">
+        <a>Go to External Urls</a>
       </Link>
       <ul>
         {images.map((src, index) => (
@@ -26,7 +25,7 @@ export default function Home() {
               src={src}
               alt={`Image ${index}`}
               width={600}
-              height={450}
+              height={400}
               layout="responsive"
             />
           </li>
